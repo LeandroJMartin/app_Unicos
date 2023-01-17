@@ -14,12 +14,12 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org" className='text-red-600'>Next.js!</a>
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+          <code className="bg-zinc-400 py-2 px-4">pages/index.tsx</code>
         </p>
 
         <div className={styles.grid}>

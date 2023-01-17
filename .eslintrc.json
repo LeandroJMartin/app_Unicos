@@ -6,7 +6,8 @@
   "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@next/next/recommended"
   ],
   "overrides": [
   ],
@@ -22,10 +23,11 @@
       "prettier"
   ],
   "rules": {
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["error", "never"],
     "semi": "error",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "no-undef": "off"
   }
 }

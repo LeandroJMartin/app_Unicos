@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        green: configCss.colors.green,
+        blue: configCss.colors.blue,
       },
     },
     container: {

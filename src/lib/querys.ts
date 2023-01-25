@@ -26,19 +26,67 @@ export const SocialLinks = {
     ).data;
 
     return {
-      result.page.paginaHome
+      linksSocialPage: result.page.paginaHome
     };
   }
 };
 
+export const Banners = {
+  postType: 'banners',
+  acf: 'bannerHome',
+  query: function () {
+    return gql`
+      query GetSocialLink {
+        ${this.postType} {
+          nodes {
+            ${this.acf}  {
+              bannerImagemDesktop {
+                sourceUrl
+              }
+              bannerImagemMobile {
+                sourceUrl
+              }
+              bannerLinkExterno
+              bannerLink
+            }
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function () {
+    const result = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    const banners = result[this.postType].nodes?.map((item: any) => {
+      return {
+        ImgDesktopUrl: item[this.acf].bannerImagemDesktop.sourceUrl,
+        ImgMobileUrl: item[this.acf].bannerImagemMobile.sourceUrl,
+        LinkExterno: item[this.acf].bannerLinkExterno,
+        Url: item[this.acf].bannerLink
+      }
+    })
+
+    return {
+      banners
+    };
+  }
+};
+
+
 export const ExecuteAllQuerys = async () => {
   const [
-    { result }
+    { linksSocialPage },
+    { banners }
   ] = await Promise.all([
-    await SocialLinks.queryExecute()
+    await SocialLinks.queryExecute(),
+    await Banners.queryExecute()
   ]);
 
   return {
-    result,
+    linksSocialPage,
+    banners
   };
 };

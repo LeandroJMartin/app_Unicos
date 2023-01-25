@@ -1,23 +1,27 @@
-import type { GetStaticProps, NextPage } from 'next'
-import { ExecuteAllQuerys } from '../lib/querys'
+import type { GetStaticProps, NextPage } from 'next';
+import HeroApp from '../components/interface/hero';
+import { ExecuteAllQuerys } from '../lib/querys';
 
-const HomeApp: NextPage = () => {
+const HomeApp: NextPage = ({ apiData }: any) => {
   return (
-    <section>
-      <h1>Home</h1>
-    </section>
-  )
-}
+    <>
+      <HeroApp Banners={apiData.banners} />
+      <section>
+        <h1>Home</h1>
+      </section>
+    </>
+  );
+};
 
 export default HomeApp;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const result = await ExecuteAllQuerys();
+  const response = await ExecuteAllQuerys();
 
   return {
     props: {
-      apiData: result
+      apiData: response,
     },
-    revalidate: 30
+    revalidate: 30,
   };
 };

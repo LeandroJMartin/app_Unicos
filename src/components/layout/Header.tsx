@@ -13,7 +13,7 @@ interface props {
 const HeaderApp = ({ SocialLinks }: props) => {
   return (
     // colocar style: bg-blue h-[calc(93vh)]
-    <header className="px-4 py-6 flex flex-col justify-between">
+    <header className="xl:container px-4 xl:px-0 py-6 flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <Link href="/">
           <Image
@@ -27,11 +27,8 @@ const HeaderApp = ({ SocialLinks }: props) => {
           <RiMenu3Fill size={30} className="text-blue" />
         </button>
       </div>
-      <div className="hidden">
-        //Retirar de dentro da DIV e apagar esta DIV
-        <NavigationApp />
-        <SocialIcons SocialLinks={SocialLinks.apiData.linksSocialPage} />
-      </div>
+      <NavigationApp />
+      <SocialIcons SocialLinks={SocialLinks.apiData.linksSocialPage} />
     </header>
   );
 };

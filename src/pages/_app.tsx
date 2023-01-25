@@ -4,12 +4,11 @@ import type { AppProps } from 'next/app';
 import LayoutApp from '../components/layout/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return(
-    <LayoutApp>
+  return (
+    <LayoutApp ApiData={pageProps}>
       <Component {...pageProps} />
     </LayoutApp>
-  )
-
+  );
 }
 
 export default MyApp;

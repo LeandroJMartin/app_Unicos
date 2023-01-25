@@ -1,14 +1,19 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Logo from '../../../public/Logo.svg';
-import { RiMenu3Fill } from 'react-icons/ri'
-import SocialIcons from "../interface/SocialIcons";
-import NavigationApp from "../interface/Navigation";
+import { RiMenu3Fill } from 'react-icons/ri';
+import SocialIcons from '../interface/SocialIcons';
+import NavigationApp from '../interface/Navigation';
 
-const HeaderApp = () => {
-  return(
-    <header className="px-4 py-6">
+interface props {
+  SocialLinks: any;
+}
+
+const HeaderApp = ({ SocialLinks }: props) => {
+  return (
+    // colocar style: bg-blue h-[calc(93vh)]
+    <header className="px-4 py-6 flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <Link href="/">
           <Image
@@ -22,12 +27,13 @@ const HeaderApp = () => {
           <RiMenu3Fill size={30} className="text-blue" />
         </button>
       </div>
-      <div className="block xl:flex items-center">
+      <div className="hidden">
+        //Retirar de dentro da DIV e apagar esta DIV
         <NavigationApp />
-        <SocialIcons />
+        <SocialIcons SocialLinks={SocialLinks.apiData.linksSocialPage} />
       </div>
     </header>
   );
-}
+};
 
 export default HeaderApp;

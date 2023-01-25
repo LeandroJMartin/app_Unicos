@@ -12,11 +12,11 @@ const HomeApp: NextPage = () => {
 export default HomeApp;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resultado = await ExecuteAllQuerys();
+  const result = await ExecuteAllQuerys();
 
   return {
     props: {
-      apiData: resultado
+      apiData: result
     },
     revalidate: 30
   };

@@ -25,10 +25,8 @@ export const SocialLinks = {
       await ApolloClient.query({ query: this.query() })
     ).data;
 
-    console.log(result);
-
     return {
-      result
+      result.page.paginaHome
     };
   }
 };

@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bg-bgBlue {
+    @apply bg-gradient-to-r xl:from-blue xl:to-blue2 bg-white;
+  }
+  .title {
+    @apply text-blue text-3xl font-bold text-center;
+  }
+  .btn-off {
+    @apply text-blue text-base font-bold text-center uppercase rounded-3xl py-[6px]  px-5 border border-blue inline-block;
+  }
+  .btn-on {
+    @apply bg-bgBlue text-white text-base font-bold text-center uppercase rounded-3xl py-[6px]  px-5 inline-block;
+  }
+}
+
+/*-- Slide --*/
+.alice-carousel .alice-carousel__dots {
+  margin: 12px 3px 5px;
+}
+
+.alice-carousel .alice-carousel__dots-item:not(.__custom):hover,
+.alice-carousel .alice-carousel__dots-item:not(.__custom).__active {
+  background-color: #2885c6;
+}
+
+.alice-carousel .alice-carousel__dots-item:not(.__custom),
+.alice-carousel .alice-carousel__dots-item:not(.__custom) {
+  border: 1px solid;
+  border-color: #2885c6;
+}
+
+.alice-carousel .alice-carousel__prev-btn,
+.alice-carousel .alice-carousel__next-btn {
+  display: none;
+}
+

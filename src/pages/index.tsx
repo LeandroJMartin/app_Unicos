@@ -1,14 +1,15 @@
 import type { GetStaticProps, NextPage } from 'next';
-import HeroApp from '../components/interface/hero';
+import EmpeedimentosHome from '../components/interface/Empreendimentos';
+import FinanciamentoHome from '../components/interface/financiamento';
+import HeroApp from '../components/interface/Hero';
 import { ExecuteAllQuerys } from '../lib/querys';
 
 const HomeApp: NextPage = ({ apiData }: any) => {
   return (
     <>
       <HeroApp Banners={apiData.banners} />
-      <section>
-        <h1>Home</h1>
-      </section>
+      <EmpeedimentosHome />
+      <FinanciamentoHome />
     </>
   );
 };

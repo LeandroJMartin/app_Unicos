@@ -7,20 +7,18 @@ module.exports = {
     extend: {
       colors: {
         blue: configCss.colors.blue,
+        blue2: configCss.colors.blue2,
       },
-    },
-    fontSize: {
-      xs: ['10px', '16px'],
-      sm: ['12px', '18px'],
-      base: ['14px', '20px'],
-      lg: ['18px', '26px'],
-      xl: ['24px', '32px'],
+      fontSize: {
+        xs: ['10px', '16px'],
+        sm: ['12px', '18px'],
+        base: ['14px', '20px'],
+        lg: ['18px', '26px'],
+        xl: ['24px', '32px'],
+      },
     },
     container: {
       center: true,
-    },
-    backgroundImage: {
-      backicon: configCss.backgroundImg.backicon,
     },
   },
   plugins: [],

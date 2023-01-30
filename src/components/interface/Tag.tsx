@@ -15,7 +15,7 @@ const TagApp = ({ tag }: Props) => {
   };
   return (
     <span
-      className={`absolute top-3 left-0 z-10 text-white py-1 px-2 rounded-r-lg ${
+      className={`absolute top-6 left-0 z-10 text-white py-2 px-3 rounded-r-lg max-content ${
         colorsTags[tag[0]]
       }`}
     >

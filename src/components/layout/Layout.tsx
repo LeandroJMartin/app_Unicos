@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import WhatsApp from '../interface/Whatsapp';
 import FooterApp from './Footer';
 import HeadApp from './Head';
 import HeaderApp from './Header';
@@ -16,6 +17,7 @@ const LayoutApp = ({ children, ApiData }: Props) => {
 
       <main>{children}</main>
 
+      <WhatsApp />
       <FooterApp />
     </>
   );

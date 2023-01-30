@@ -1,12 +1,14 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 interface IContext {
   state: boolean;
+  toogleState: () => void;
   changeState: (newState: boolean) => void;
 }
 
 const defaultValues = {
   state: false,
+  toogleState: () => {},
   changeState: (newState: boolean) => {
     newState;
   },
@@ -14,22 +16,39 @@ const defaultValues = {
 
 export const MenuMobileContext = createContext<IContext>(defaultValues);
 
-const MenuContextProvider: React.FC = ({ children }) => {
+export default function MenuContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [state, setState] = useState(defaultValues.state);
 
   const changeState = (newState: boolean) => {
-    if (!newState) return;
+    if (!!newState) return;
 
     setState(newState);
   };
 
+  const toogleState = () => {
+    setState((prev) => !prev);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', function (e) {
+      if (this.window.innerWidth > 768) setState(false);
+    });
+
+    return () =>
+      window.removeEventListener('resize', function (e) {
+        if (this.window.innerWidth > 768) setState(false);
+      });
+  }, []);
+
   return (
-    <MenuMobileContext.Provider value={{ state, changeState }}>
+    <MenuMobileContext.Provider value={{ state, toogleState, changeState }}>
       {children}
     </MenuMobileContext.Provider>
   );
-};
+}
 
-export default MenuContextProvider;
-
-export const useMenuMobileContext = useContext(MenuMobileContext);
+export const useMenuMobileContext = () => useContext(MenuMobileContext);

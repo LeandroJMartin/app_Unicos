@@ -20,7 +20,9 @@ const EmpeedimentosHome = ({ AllEmp }: Props) => {
   return (
     <section className="container">
       <h1 className="title">Encontre a opção ideal para você</h1>
-      <SlideApp items={emps} responsive={responsive} />
+      <div className="emp py-6">
+        <SlideApp items={emps} responsive={responsive} gap={120} />
+      </div>
       <div className="my-4 text-center">
         <Link href="/empreendimentos" className="btn-off">
           Veja mais

@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { SocialLinks, PgAbout } from '../lib/querys';
 
 const SobreUnicos = ({ apiData }: { apiData: any }) => {
-  console.log(apiData.contentAbout.page.paginaSobre);
-
   return (
     <section>
       <div className="container">

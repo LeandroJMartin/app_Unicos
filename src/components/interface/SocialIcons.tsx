@@ -20,7 +20,7 @@ const SocialIcons = ({ SocialLinks }: props) => {
 
   return (
     <div className="flex items-center justify-between xl:justify-end px-8 xl:px-2 pt-14 xl:pt-0">
-      {SocialLinks.rsLinkFacebook && (
+      {SocialLinks?.rsLinkFacebook && (
         <Anchor
           url={SocialLinks.rsLinkFacebook}
           Icon={
@@ -28,7 +28,7 @@ const SocialIcons = ({ SocialLinks }: props) => {
           }
         />
       )}
-      {SocialLinks.rsLinkInstagram && (
+      {SocialLinks?.rsLinkInstagram && (
         <Anchor
           url={SocialLinks.rsLinkInstagram}
           Icon={
@@ -36,7 +36,7 @@ const SocialIcons = ({ SocialLinks }: props) => {
           }
         />
       )}
-      {SocialLinks.rsLinkLinkedin && (
+      {SocialLinks?.rsLinkLinkedin && (
         <Anchor
           url={SocialLinks.rsLinkLinkedin}
           Icon={
@@ -44,7 +44,7 @@ const SocialIcons = ({ SocialLinks }: props) => {
           }
         />
       )}
-      {SocialLinks.rsLinkYoutube && (
+      {SocialLinks?.rsLinkYoutube && (
         <Anchor
           url={SocialLinks.rsLinkYoutube}
           Icon={

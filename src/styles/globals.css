@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-size: 14px;
+  color: #212121;
+}
+
 @layer components {
   .bg-bgBlue {
     @apply bg-gradient-to-r xl:from-blue xl:to-blue2 bg-white;
@@ -14,6 +19,23 @@
   }
   .btn-on {
     @apply bg-bgBlue text-white text-base font-bold text-center uppercase rounded-3xl py-[6px]  px-5 inline-block;
+  }
+  .btn-white {
+    @apply bg-transparent text-white text-base font-bold text-center uppercase rounded-3xl py-[6px] border border-white px-5 inline-block;
+  }
+}
+
+@layer base {
+  h3 {
+    @apply text-lg lg:text-4xl py-4 lg:py-8 text-blue2 font-bold;
+  }
+
+  h4 {
+    @apply text-lg lg:text-4xl text-blue font-bold;
+  }
+
+  input {
+    @apply py-2 px-4 rounded-3xl border border-slate-300 text-black placeholder:text-slate-900 shadow-md shadow-slate-300/40;
   }
 }
 
@@ -37,4 +59,3 @@
 .alice-carousel .alice-carousel__next-btn {
   display: none;
 }
-

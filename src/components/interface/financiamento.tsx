@@ -1,40 +1,77 @@
 import Image from 'next/image';
 import ImgFinanceHome from '../../../public/sobrehome.svg';
 
-const FinanciamentoHome = () => {
+interface Props {
+  Simulator: {
+    simuladorTitulo: string;
+    simuladorDescricao: string;
+  };
+}
+
+const FinanciamentoHome = ({ Simulator }: Props) => {
+  console.log(Simulator);
+
   return (
-    <section className="container px-4 py-8">
-      <div className="flex flex-col md:flex-row items-center">
+    <section className="py-8 bg-whiteBoard">
+      <div className="container flex flex-col md:flex-row items-center text-center">
         <div className="w-full md:w-1/3">
           <Image
             src={ImgFinanceHome}
             alt="Image"
-            className="mx-auto block w-[40%] xl:w-full"
+            className="mx-auto block w-[40%] xl:w-[90%]"
           ></Image>
         </div>
         <div className="w-full md:w-2/3 ">
-          <h1 className="title">Descubra seu potencial de financiamento</h1>
-          <p>
-            Encontre uma opção que cabe no seu bolso. Preencha o formulário
-            abaixo e descubra seu potencial de financiamento.
-          </p>
-          <form action="">
-            <input type="text" placeholder="Seu nome" />
-            <input type="email" placeholder="Seu e-mail" />
-            <input type="tel" placeholder="Seu whatsapp" />
-            <input type="text" placeholder="Renda familiar" />
-            <input type="text" placeholder="Valor para entrada" />
-            <p>Trabalhou por mais de 3 anos sob o regime de FGTS?</p>
-            <div className="flex">
+          <h1 className="title">{Simulator.simuladorTitulo}</h1>
+          <p>{Simulator.simuladorDescricao}</p>
+          <form action="" className="mt-6">
+            <input
+              type="text"
+              placeholder="Seu nome"
+              className="w-full md:w-[calc(50%-16px)] my-2 md:mx-2"
+            />
+            <input
+              type="email"
+              placeholder="Seu e-mail"
+              className="w-full md:w-[calc(50%-16px)] my-2 md:mx-2"
+            />
+            <input
+              type="tel"
+              placeholder="Seu whatsapp"
+              className="w-full md:w-[calc(50%-16px)] my-2 md:mx-2"
+            />
+            <input
+              type="text"
+              placeholder="Renda familiar"
+              className="w-full md:w-[calc(25%-16px)] my-2 md:mx-2"
+            />
+            <input
+              type="text"
+              placeholder="Valor para entrada"
+              className="w-full md:w-[calc(25%-16px)] my-2 md:mx-2"
+            />
+            <p className="mt-4 mb-2">
+              Trabalhou por mais de 3 anos sob o regime de FGTS?
+            </p>
+            <div className="flex justify-center items-center">
               <label htmlFor="sim">
                 <input type="radio" name="fgts" id="sim" value="sim" />
-                Sim
+                <span className="ml-1">Sim</span>
               </label>
-              <label htmlFor="nao">
+              <label htmlFor="nao" className="ml-3 sm:ml-8">
                 <input type="radio" name="fgts" id="nao" value="nao" />
-                Não
+                <span className="ml-1">Não</span>
+              </label>
+              <label htmlFor="nao" className="ml-3 sm:ml-8">
+                <input type="text" name="valorfgts" className="w-[80px] py-1" />
+                <span className="ml-1">informe o valor</span>
               </label>
             </div>
+            <input
+              type="submit"
+              value="Descubra agora"
+              className="btn-on mt-6"
+            />
           </form>
         </div>
       </div>

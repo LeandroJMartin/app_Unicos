@@ -11,6 +11,8 @@ interface props {
 }
 
 const HeaderApp = ({ SocialLinks }: props) => {
+  console.log(SocialLinks);
+
   return (
     <header className="bg-blue xl:bg-white h-[93vh] xl:h-auto xl:container px-4 xl:px-0 py-4 xl:py-0 flex flex-col xl:flex-row justify-between">
       <div className="flex items-center justify-between">

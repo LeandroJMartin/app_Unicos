@@ -3,6 +3,45 @@ import { getClient } from './apollo';
 
 const ApolloClient = getClient();
 
+export const AboutHome = {
+  postType: 'page',
+  acf: 'paginaHome',
+  query: function () {
+    return gql`
+      query GetContentAbout {
+        ${this.postType}(id: "81", idType: DATABASE_ID){
+          ${this.acf}{
+            simuladorTitulo
+            simuladorDescricao
+            blockTituloSobre
+            blockDescricaoSobre
+          }
+        },
+        thumbnail:${this.postType}(id: "2", idType: DATABASE_ID){
+          featuredImage{
+            node{
+              sourceUrl
+            }
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function () {
+    const result = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    return {
+      ContentAboutHome: result.page.paginaHome,
+      thumbnail: result.thumbnail.featuredImage.node.sourceUrl
+    };
+
+
+  }
+}
+
 export const SocialLinks = {
   postType: 'page',
   acf: 'paginaHome',
@@ -75,18 +114,63 @@ export const Banners = {
   }
 };
 
+export const PgAbout = {
+  postType: 'page',
+  acf: 'paginaSobre',
+  query: function () {
+    return gql`
+      query GetContent {
+        ${this.postType}(id: "2", idType: DATABASE_ID){
+          featuredImage{
+            node{
+              sourceUrl
+            }
+          }
+          content
+          ${this.acf}{
+            sDiretoriaTitulo
+            sDiretoriaDescricao
+            sTituloVisao
+            sVisaoDescricao
+            sTituloMissao
+            sMissaoDescricao
+            sTituloVisao
+            sVisaoDescricao
+            sPoliticaTitulo
+            sPoliticaDescricao
+            sImagensCertificados{
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function () {
+    const contentAbout = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    return { contentAbout }
+  }
+}
 
 export const ExecuteAllQuerys = async () => {
   const [
     { linksSocialPage },
-    { banners }
+    { banners },
+    { ContentAboutHome, thumbnail }
   ] = await Promise.all([
     await SocialLinks.queryExecute(),
-    await Banners.queryExecute()
+    await Banners.queryExecute(),
+    await AboutHome.queryExecute(),
   ]);
 
   return {
     linksSocialPage,
-    banners
+    banners,
+    ContentAboutHome,
+    thumbnail
   };
 };

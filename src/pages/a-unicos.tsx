@@ -38,27 +38,45 @@ const SobreUnicos = ({ apiData }: { apiData: any }) => {
         </div>
       </div>
 
-      <div className="flex items-center h-[400px] bg-whiteBoard">
+      <div className="flex items-center h-auto my-4 lg:my-0 py-12 bg-whiteBoard">
         <div className="container">
-          <div className="grid grid-cols-3">
-            <div className="block mx-auto">
-              <div className="block w-[140px]">
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="block mx-auto mb-12 lg:mb-0">
+              <div className="block mx-auto w-[140px]">
                 <img src="/sobre/Vector-missao.svg" alt="imagem vector" />
               </div>
 
               <h3 className="py-2 text-center">
                 {apiData.contentAbout.page.paginaSobre.sTituloMissao}
               </h3>
+
+              <p
+                className="text-center"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    apiData.contentAbout.page.paginaSobre.sMissaoDescricao,
+                }}
+              />
             </div>
 
-            <div className="block mx-auto">
-              <div className="block w-[110px]">
+            <div className="block mx-auto mb-12 lg:mb-0">
+              <div className="block mx-auto w-[110px]">
                 <img src="/sobre/Vector-visao.svg" alt="imagem vector" />
               </div>
 
               <h3 className="py-2 text-center">
                 {apiData.contentAbout.page.paginaSobre.sTituloVisao}
               </h3>
+
+              <div className="block mx-auto lg:max-w-[50%]">
+                <p
+                  className="text-center"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      apiData.contentAbout.page.paginaSobre.sVisaoDescricao,
+                  }}
+                />
+              </div>
             </div>
 
             <div className="block mx-auto">
@@ -67,9 +85,27 @@ const SobreUnicos = ({ apiData }: { apiData: any }) => {
               </div>
 
               <h3 className="py-2 text-center">
-                {apiData.contentAbout.page.paginaSobre.sTituloVisao}
+                {apiData.contentAbout.page.paginaSobre.sTituloValores}
               </h3>
+
+              <p
+                className="text-center"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    apiData.contentAbout.page.paginaSobre.sValoresDescricao,
+                }}
+              />
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center py-12">
+        <div className="container">
+          <div className="flex w-full py-8 justify-center rounded-xl bg-bgBlue">
+            <h2 className="text-3xl text-white font-bold">
+              {apiData.contentAbout.page.paginaSobre.sDiretoriaTitulo}
+            </h2>
           </div>
         </div>
       </div>

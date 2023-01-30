@@ -1,10 +1,15 @@
 import Link from 'next/link';
+import SlideApp from './Slide';
 
-const EmpeedimentosHome = () => {
+interface Props {
+  AllEmp: {};
+}
+
+const EmpeedimentosHome = ({ AllEmp }: Props) => {
   return (
     <section className="container">
       <h1 className="title">Encontre a opção ideal para você</h1>
-      <div className="h-[400px] bg-blue w-[33%]">Produto</div>
+      <SlideApp items={AllEmp} />
       <div className="my-4 text-center">
         <Link href="/empreendimentos" className="btn-off">
           Veja mais

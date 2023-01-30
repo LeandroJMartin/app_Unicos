@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 import AboutHome from '../components/interface/AboutHome';
-import EmpeedimentosHome from '../components/interface/Empreendimentos';
+import EmpeedimentosHome from '../components/interface/EmpreendimentosHome';
 import FinanciamentoHome from '../components/interface/Financiamento';
 import HeroApp from '../components/interface/Hero';
 import { ExecuteAllQuerys } from '../lib/querys';
@@ -11,7 +11,7 @@ const HomeApp: NextPage = ({ apiData }: any) => {
   return (
     <>
       <HeroApp Banners={apiData.banners} />
-      <EmpeedimentosHome />
+      <EmpeedimentosHome AllEmp={apiData.AllEmp} />
       <FinanciamentoHome Simulator={apiData.ContentAboutHome} />
       <AboutHome
         ContentAbout={apiData.ContentAboutHome}

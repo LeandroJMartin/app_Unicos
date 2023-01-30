@@ -9,7 +9,7 @@ body {
 
 @layer components {
   .bg-bgBlue {
-    @apply bg-gradient-to-r xl:from-blue xl:to-blue2 bg-white;
+    @apply bg-gradient-to-r from-blue to-blue2;
   }
   .title {
     @apply text-blue text-3xl font-bold text-center;

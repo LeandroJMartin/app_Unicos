@@ -132,6 +132,8 @@ export const PgAbout = {
             sDiretoriaDescricao
             sTituloVisao
             sVisaoDescricao
+            sTituloValores
+            sValoresDescricao
             sTituloMissao
             sMissaoDescricao
             sTituloVisao
@@ -156,21 +158,65 @@ export const PgAbout = {
   }
 }
 
+export const Empreendimento = {
+  postType: 'empreendimentos',
+  acf: 'empreendimento',
+  query: function () {
+    return gql`
+      query GetContent {
+        ${this.postType}{
+          nodes {
+            slug
+            ${this.acf}{
+              empEtapa
+              empImagemPrincipal{
+                sourceUrl
+              }
+              parcelasAPartirDe
+              empLogotipoDoEmpreendimento{
+                sourceUrl
+              }
+              empCaracteristicas
+              empEstagioDaObra
+              empEstagio
+              empCidade
+            }
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function () {
+    const result = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    console.log(result);
+
+
+    return { AllEmp: result.empreendimentos.nodes }
+  }
+}
+
 export const ExecuteAllQuerys = async () => {
   const [
     { linksSocialPage },
     { banners },
-    { ContentAboutHome, thumbnail }
+    { ContentAboutHome, thumbnail },
+    { AllEmp }
   ] = await Promise.all([
     await SocialLinks.queryExecute(),
     await Banners.queryExecute(),
     await AboutHome.queryExecute(),
+    await Empreendimento.queryExecute(),
   ]);
 
   return {
     linksSocialPage,
     banners,
     ContentAboutHome,
-    thumbnail
+    thumbnail,
+    AllEmp
   };
 };

@@ -11,7 +11,7 @@ interface Props {
 
 const AboutHome = ({ ContentAbout, Thumbnail }: Props) => {
   return (
-    <section className="container px-4 2xl:px-0">
+    <section className="container py-8 px-4 2xl:px-0">
       <div className="rounded-xl flex flex-col md:flex-row items-center bg-blue">
         <div className="w-full md:w-1/2 px-6 xl:px-12 py-6 text-white">
           <h1 className="text-2xl md:text-4xl text-yellow-300 font-bold">

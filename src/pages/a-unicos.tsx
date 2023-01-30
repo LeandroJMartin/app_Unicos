@@ -100,12 +100,68 @@ const SobreUnicos = ({ apiData }: { apiData: any }) => {
         </div>
       </div>
 
-      <div className="flex items-center py-12">
+      <div className="flex items-center py-4 lg:py-12">
         <div className="container">
-          <div className="flex w-full py-8 justify-center rounded-xl bg-bgBlue">
-            <h2 className="text-3xl text-white font-bold">
+          <div className="flex flex-col w-full p-6 lg:p-12 justify-center space-y-4 rounded-xl bg-bgBlue">
+            <h2 className="text-3xl text-white text-center font-bold">
               {apiData.contentAbout.page.paginaSobre.sDiretoriaTitulo}
             </h2>
+
+            <p
+              className="text-sm lg:text-base text-white"
+              dangerouslySetInnerHTML={{
+                __html:
+                  apiData.contentAbout.page.paginaSobre.sDiretoriaDescricao,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="py-4 lg:py-12">
+        <div className="container">
+          <div className="flex flex-wrap lg:flex-nowrap flex-col lg:flex-row gap-4">
+            <div className="block w-full lg:w-4/12 lg:p-14">
+              <img
+                src="/sobre/vector-2.svg"
+                className="block mx-auto w-[130px] lg:w-auto aspect-square lg:aspect-auto"
+                alt="imagem vetor"
+              />
+            </div>
+
+            <div className="block w-full lg:w-8/12">
+              <div className="space-y-4">
+                <h2 className="text-lg lg:text-3xl font-bold">
+                  {apiData.contentAbout.page.paginaSobre.sPoliticaTitulo}
+                </h2>
+
+                <p
+                  className="text-sm lg:text-lg"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      apiData.contentAbout.page.paginaSobre.sPoliticaDescricao,
+                  }}
+                />
+              </div>
+
+              <div className="flex justify-between lg:justify-start lg:gap-12">
+                <img
+                  src="/sobre/certificado-1.png"
+                  className="block w-[120px] md:w-[180px] lg:w-auto object-contain"
+                  alt="imagem certificado"
+                />
+                <img
+                  src="/sobre/certificado-2.png"
+                  className="block w-[70px] md:w-[90px] lg:w-auto object-contain"
+                  alt="imagem certificado"
+                />
+                <img
+                  src="/sobre/certificado-3.png"
+                  className="block w-[60px] md:w-[100px] lg:w-auto object-contain"
+                  alt="imagem certificado"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

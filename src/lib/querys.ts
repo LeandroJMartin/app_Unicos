@@ -192,9 +192,6 @@ export const Empreendimento = {
       await ApolloClient.query({ query: this.query() })
     ).data;
 
-    console.log(result);
-
-
     return { AllEmp: result.empreendimentos.nodes }
   }
 }

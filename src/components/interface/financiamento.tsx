@@ -9,8 +9,6 @@ interface Props {
 }
 
 const FinanciamentoHome = ({ Simulator }: Props) => {
-  console.log(Simulator);
-
   return (
     <section className="py-8 bg-whiteBoard">
       <div className="container flex flex-col md:flex-row items-center text-center">

@@ -42,7 +42,7 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
   return (
     <Link
       href={'/empreendimento/' + Item.slug}
-      className="item border border-slate-300 rounded-xl block"
+      className="item border border-slate-300 rounded-3xl block bg-white shadow-xl mb-3"
     >
       <div className="h-[320px] relative">
         <TagApp tag={emp.empEtapa} />
@@ -50,29 +50,27 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
           src={emp.empImagemPrincipal?.sourceUrl}
           alt={'Imagem ' + Item.slug}
           fill
-          className="object-cover rounded-t-xl"
+          className="object-cover rounded-t-3xl"
         />
       </div>
       <InfoPrice value={emp.parcelasAPartirDe} />
       <div className="px-4 py-4 min-h-[250px]">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center">
           {emp.empLogotipoDoEmpreendimento?.sourceUrl && (
-            <div className="w-[150px] h-[100px] relative">
-              <Image
+            <div className="w-[100px]">
+              <img
                 src={emp.empLogotipoDoEmpreendimento?.sourceUrl}
                 alt="Logo empreendimento"
-                fill
-                className="object-contain"
               />
             </div>
           )}
           <div
-            className="text-blue2 mx-h-[100px]"
+            className="text-blue2 text-xs w-[calc(100%-100px)] mx-h-[100px] pl-4"
             dangerouslySetInnerHTML={{ __html: emp.empCaracteristicas }}
           />
         </div>
         {emp.empEstagioDaObra && (
-          <div className="bg-slate-200 h-3 w-full rounded-xl">
+          <div className="bg-slate-200 h-[10px] my-4 w-full rounded-xl">
             <span
               className="bg-bgBlue block rounded-xl h-full"
               style={{
@@ -93,8 +91,8 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
         <ButtonEmp />
         {emp.empCidade && (
           <p className="flex items-center justify-center">
-            <CiLocationOn size={20} />
-            <span className="ml-2">{emp.empCidade}</span>
+            <CiLocationOn size={18} />
+            <span className="ml-1 text-xs">{emp.empCidade}</span>
           </p>
         )}
       </div>

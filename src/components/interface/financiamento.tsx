@@ -71,6 +71,7 @@ const FinanciamentoHome = ({ Simulator }: Props) => {
               className="btn-on mt-6"
             />
           </form>
+          <p className="text-[10px] py-2">Texto LGPD</p>
         </div>
       </div>
     </section>

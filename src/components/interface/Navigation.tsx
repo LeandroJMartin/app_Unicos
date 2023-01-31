@@ -26,7 +26,7 @@ const NavigationApp = () => {
       <NavLink path="/Fale conosco" label="Fale conosco" />
       <a
         href="#portal-do-cliente"
-        className="bg-transparent xl:bg-bgBlue text-white font-bold px-8 py-3 mt-8 xl:mt-0 rounded-[30px] inline-block text-xl xl:text-base"
+        className="bg-transparent xl:bg-bgBlue text-white font-bold px-6 py-3 xl:py-1 mt-8 xl:mt-0 rounded-[30px] inline-block text-xl xl:text-base"
       >
         Portal do cliente
       </a>

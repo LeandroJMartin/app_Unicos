@@ -18,12 +18,12 @@ const EmpeedimentosHome = ({ AllEmp }: Props) => {
   };
 
   return (
-    <section className="container">
+    <section className="container py-8">
       <h1 className="title">Encontre a opção ideal para você</h1>
-      <div className="emp py-6">
-        <SlideApp items={emps} responsive={responsive} gap={120} />
+      <div className="emp mt-8">
+        <SlideApp items={emps} responsive={responsive} />
       </div>
-      <div className="my-4 text-center">
+      <div className="text-center">
         <Link href="/empreendimentos" className="btn-off">
           Veja mais
         </Link>

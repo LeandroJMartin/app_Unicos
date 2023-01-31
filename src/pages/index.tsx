@@ -6,8 +6,6 @@ import HeroApp from '../components/interface/Hero';
 import { ExecuteAllQuerys } from '../lib/querys';
 
 const HomeApp: NextPage = ({ apiData }: any) => {
-  console.log(apiData);
-
   return (
     <>
       <HeroApp Banners={apiData.banners} />

@@ -30,7 +30,7 @@ const HeroApp = ({ Banners }: Props) => {
   });
 
   return (
-    <div className="container">
+    <div className="container hero">
       <SlideApp items={items} />
     </div>
   );

@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { CiPizza } from 'react-icons/ci';
 import { getClient } from './apollo';
 
 const ApolloClient = getClient();
@@ -158,7 +159,7 @@ export const PgAbout = {
   }
 }
 
-export const Empreendimento = {
+export const Empreendimentos = {
   postType: 'empreendimentos',
   acf: 'empreendimento',
   query: function () {
@@ -168,6 +169,7 @@ export const Empreendimento = {
           nodes {
             slug
             ${this.acf}{
+              empTipoDoEmpreendimento
               empEtapa
               empImagemPrincipal{
                 sourceUrl
@@ -196,6 +198,88 @@ export const Empreendimento = {
   }
 }
 
+export const Empreendimento = {
+  postType: 'empreendimento',
+  acf: 'empreendimento',
+  query: function () {
+    return gql`
+      query GetContent($id: ID!) {
+        ${this.postType}(idType: SLUG, id: $id){
+          ${this.acf} {
+            empImagemDaCapa{
+              sourceUrl
+            }
+            empImagemPrincipal{
+              sourceUrl
+            }
+            empLogotipoDoEmpreendimento{
+              sourceUrl
+            }
+            empDescricao
+            empTipoDoEmpreendimento
+            empEtapa
+            parcelasAPartirDe
+            empCidade
+            empEstagioDaObra
+            empEstagio
+            empCaracteristicas
+            empDiferencial{
+              icone{
+                sourceUrl
+              }
+              nome
+            }
+            empImagensDasPlantas{
+            texto
+            imagem{
+                sourceUrl
+              }
+            }
+            empFotos{
+              sourceUrl
+            }
+            empImagemDaImplantacao{
+              sourceUrl
+            }
+            empLocalizacao
+            empEstandeDeVendas
+          }
+        }
+      }
+    `;
+  },
+
+  queryExecute: async function (slug: string) {
+    const result = await (
+      await ApolloClient.query({ query: this.query(), variables: { id: slug } })
+    ).data;
+
+    return { emp: result.empreendimento.empreendimento }
+  }
+}
+
+export const EmpSlugs = {
+  postType: 'empreendimentos',
+  query: function () {
+    return gql`
+      query GetContent {
+        ${this.postType}{
+          nodes {
+            slug
+          }
+        }
+      }
+    `;
+  },
+  queryExecute: async function () {
+    const result = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    return { slugs: result.empreendimentos.nodes }
+  }
+}
+
 export const ExecuteAllQuerys = async () => {
   const [
     { linksSocialPage },
@@ -206,7 +290,7 @@ export const ExecuteAllQuerys = async () => {
     await SocialLinks.queryExecute(),
     await Banners.queryExecute(),
     await AboutHome.queryExecute(),
-    await Empreendimento.queryExecute(),
+    await Empreendimentos.queryExecute(),
   ]);
 
   return {

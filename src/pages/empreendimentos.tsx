@@ -13,13 +13,23 @@ const EmpreendimentosApp: NextPage = ({ apiData }: any) => {
   const emps = apiData.AllEmp?.map((item: any) => {
     return <ItemListEmpreendimentos Item={item} />;
   });
+
+  const Items = apiData.AllEmp?.map((item: any) => {
+    return {
+      cidades: item.empreendimento.empCidade,
+      tipos: item.empreendimento.empTipoDoEmpreendimento,
+    };
+  });
+
   return (
     <>
       <HeroApp Banners={apiData.banners} />
       <h1 className="title">Encontre a opção ideal para você</h1>
       <section className="container mb-4">
-        <FilterEmp />
-        <div className="grid grid-cols-3 gap-10">{emps}</div>
+        <FilterEmp SubItems={Items} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
+          {emps}
+        </div>
       </section>
       <FinanciamentoHome Simulator={apiData.ContentAboutHome} />
     </>

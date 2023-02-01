@@ -18,7 +18,7 @@ body {
     @apply text-blue text-base font-bold text-center uppercase rounded-3xl py-[6px]  px-5 border border-blue inline-block;
   }
   .btn-on {
-    @apply bg-bgBlue text-white text-base font-bold text-center uppercase rounded-3xl py-[6px]  px-5 inline-block;
+    @apply bg-bgBlue text-white text-base font-bold text-center uppercase rounded-3xl py-[6px] px-5 inline-block;
   }
   .btn-white {
     @apply bg-transparent text-white text-base font-bold text-center uppercase rounded-3xl py-[6px] border border-white px-5 inline-block;

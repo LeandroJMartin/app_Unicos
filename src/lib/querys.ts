@@ -280,6 +280,62 @@ export const EmpSlugs = {
   }
 }
 
+export const Posts = {
+  postType: 'posts',
+  query: function () {
+    return gql`
+      query GetContent{
+        ${this.postType} {
+          nodes{
+            title
+            date
+            slug
+            featuredImage{
+              node{
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    `;
+  },
+  queryExecute: async function () {
+    const result = await (
+      await ApolloClient.query({ query: this.query() })
+    ).data;
+
+    return { posts: result.posts.nodes }
+  }
+}
+
+export const Post = {
+  postType: 'post',
+  query: function () {
+    return gql`
+      query GetContent($id: ID!) {
+        ${this.postType}(idType: SLUG, id: $id) {
+            title
+            date
+            featuredImage{
+              node{
+                sourceUrl
+              }
+            }
+            content
+          }
+        }
+    `;
+  },
+  queryExecute: async function (slug: string) {
+    const result = await (
+      await ApolloClient.query({ query: this.query(), variables: { id: slug } })
+    ).data;
+
+    return { result }
+  }
+}
+
 export const ExecuteAllQuerys = async () => {
   const [
     { linksSocialPage },

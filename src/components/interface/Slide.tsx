@@ -1,5 +1,6 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 interface Props {
@@ -11,39 +12,15 @@ interface Props {
 const SlideApp = ({ items, responsive }: Props) => {
   const Prev = () => {
     return (
-      <p className="p-1 absolute left-[-15px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#ffffff"
-          stroke-width="2"
-          stroke-linecap="square"
-          stroke-linejoin="bevel"
-        >
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
+      <p className="p-[5px] absolute left-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
+        <IoIosArrowBack size={24} className="stroke-white text-white" />
       </p>
     );
   };
   const Next = () => {
     return (
-      <p className="p-1 absolute right-[-15px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#ffffff"
-          stroke-width="2"
-          stroke-linecap="square"
-          stroke-linejoin="bevel"
-        >
-          <path d="M9 18l6-6-6-6" />
-        </svg>
+      <p className="p-[5px] absolute right-[-16px] top-[calc(50%-30px)] rounded-[100%] z-10 cursor-pointer bg-blue">
+        <IoIosArrowForward size={24} className="text-white" />
       </p>
     );
   };

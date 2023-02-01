@@ -34,7 +34,8 @@ body {
     @apply text-lg lg:text-4xl text-blue font-bold;
   }
 
-  input {
+  input,
+  textarea {
     @apply py-2 px-4 rounded-3xl border border-slate-300 text-black placeholder:text-slate-900 shadow-md shadow-slate-300/40;
   }
 }
@@ -57,4 +58,11 @@ body {
 
 .emp .alice-carousel__stage-item {
   padding: 0 30px;
+}
+
+@media screen and (max-width: 640px) {
+  .alice-carousel__prev-btn,
+  .alice-carousel__next-btn {
+    display: none !important;
+  }
 }

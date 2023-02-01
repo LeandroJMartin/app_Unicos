@@ -7,7 +7,7 @@ const FooterApp = () => {
     <footer className="bg-blue2 py-12">
       <div className="container grid gap-5 grid-cols-2 md:grid-cols-6 text-white">
         <div>
-          <Link className="block py-1" href="/fale-conosco">
+          <Link className="block py-1" href="/contato">
             Fale conosco
           </Link>
           <Link className="block py-1" href="/ofereca-sua-area">
@@ -24,7 +24,7 @@ const FooterApp = () => {
           <Link className="block py-1" href="/a-unicos">
             A Unicos
           </Link>
-          <Link className="block py-1" href="/empreendimento">
+          <Link className="block py-1" href="/empreendimentos">
             Empreendimentos
           </Link>
           <Link className="block py-1" href="/tire-suas-duvidas">

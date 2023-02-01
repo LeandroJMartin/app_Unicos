@@ -9,11 +9,7 @@ interface Props {
   apiData: any;
 }
 
-const EmpreendimentosApp: NextPage = ({ apiData }: any) => {
-  const emps = apiData.AllEmp?.map((item: any) => {
-    return <ItemListEmpreendimentos Item={item} />;
-  });
-
+const EmpreendimentosApp = ({ apiData }: Props) => {
   const Items = apiData.AllEmp?.map((item: any) => {
     return {
       cidades: item.empreendimento.empCidade,
@@ -21,14 +17,19 @@ const EmpreendimentosApp: NextPage = ({ apiData }: any) => {
     };
   });
 
+  console.log('Log(Renan): empreendimentos.tsx', apiData.AllEmp);
+
   return (
     <>
       <HeroApp Banners={apiData.banners} />
       <h1 className="title">Encontre a opção ideal para você</h1>
       <section className="container mb-4">
         <FilterEmp SubItems={Items} />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
-          {emps}
+          {apiData.AllEmp?.map((item: any) => {
+            return <ItemListEmpreendimentos Item={item} />;
+          })}
         </div>
       </section>
       <FinanciamentoHome Simulator={apiData.ContentAboutHome} />

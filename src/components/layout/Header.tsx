@@ -18,8 +18,8 @@ const HeaderApp = ({ SocialLinks }: props) => {
 
   return (
     <header
-      className={`bg-white h-auto container py-4 xl:py-0 flex flex-col xl:flex-row justify-between transition-all ${
-        menuState && 'bg-blue'
+      className={`h-auto container py-4 xl:py-0 flex flex-col xl:flex-row justify-between transition-all ${
+        menuState ? 'bg-blue' : 'bg-white'
       }`}
     >
       <div className="flex items-center justify-between">
@@ -50,12 +50,14 @@ const HeaderApp = ({ SocialLinks }: props) => {
         </button>
       </div>
       <div
-        className={`block lg:flex flex-col xl:flex-row h-[calc(100vh_*_0.93)] lg:h-auto py-8 ${
+        className={`block lg:flex flex-col xl:flex-row h-[calc(100vh_*_0.93)] lg:h-auto py-8 z-[2000] ${
           menuState ? 'flex' : 'hidden'
         } `}
       >
         <NavigationApp />
-        <SocialIcons SocialLinks={SocialLinks.apiData.linksSocialPage} />
+        {SocialLinks?.apiData?.linksSocialPage && (
+          <SocialIcons SocialLinks={SocialLinks.apiData.linksSocialPage} />
+        )}
       </div>
     </header>
   );

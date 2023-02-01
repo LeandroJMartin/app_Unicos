@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 interface IContext {
   state: boolean;
@@ -21,6 +22,8 @@ export default function MenuContextProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+
   const [state, setState] = useState(defaultValues.state);
 
   const changeState = (newState: boolean) => {
@@ -34,15 +37,28 @@ export default function MenuContextProvider({
   };
 
   useEffect(() => {
+    router.events.on('routeChangeStart', () => setState(false));
+
     window.addEventListener('resize', function (e) {
       if (this.window.innerWidth > 768) setState(false);
     });
 
-    return () =>
+    return () => {
       window.removeEventListener('resize', function (e) {
         if (this.window.innerWidth > 768) setState(false);
       });
+
+      router.events.off('routeChangeStart', () => setState(false));
+    };
   }, []);
+
+  useEffect(() => {
+    if (state) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [state]);
 
   return (
     <MenuMobileContext.Provider value={{ state, toogleState, changeState }}>

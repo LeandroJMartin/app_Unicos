@@ -13,7 +13,7 @@ export const FormDuvidas = () => {
         placeholder="Mensagem"
         className="col-span-1 md:col-span-3"
       ></textarea>
-      <div className="col-span-1 md:col-span-3 justify-items-center">
+      <div className="col-span-1 md:col-span-3 justify-items-center grid">
         <input type="submit" value="Enviar" className="btn-on" />
       </div>
     </form>
@@ -38,9 +38,11 @@ export const FormSuaArea = () => {
         placeholder="Mensagem"
         className="col-span-1 md:col-span-3"
       ></textarea>
-      <div className="col-span-1 md:col-span-3 justify-items-center">
-        <input type="file" name="file" />
-        <input type="submit" value="Enviar" className="btn-on" />
+      <div className="col-span-1 md:col-span-3 justify-items-center ">
+        <div className="flex justify-center items-center">
+          <input type="file" name="file" />
+          <input type="submit" value="Enviar" className="btn-on ml-4" />
+        </div>
       </div>
     </form>
   );
@@ -61,9 +63,11 @@ export const FormContato = () => {
         placeholder="Mensagem"
         className="col-span-1 md:col-span-3"
       ></textarea>
-      <div className="col-span-1 md:col-span-3 justify-items-center">
-        <input type="file" name="file" />
-        <input type="submit" value="Enviar" className="btn-on" />
+      <div className="col-span-1 md:col-span-3 justify-items-center ">
+        <div className="flex justify-center items-center">
+          <input type="file" name="file" />
+          <input type="submit" value="Enviar" className="btn-on ml-4" />
+        </div>
       </div>
     </form>
   );

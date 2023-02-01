@@ -50,7 +50,7 @@ const HeaderApp = ({ SocialLinks }: props) => {
         </button>
       </div>
       <div
-        className={`block lg:flex flex-col xl:flex-row h-[calc(100vh_*_0.93)] lg:h-auto py-8 z-[2000] ${
+        className={`block lg:flex flex-col xl:flex-row h-[calc(100vh_*_0.83)] lg:h-auto py-8 z-[2000] ${
           menuState ? 'flex' : 'hidden'
         } `}
       >

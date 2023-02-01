@@ -8,7 +8,7 @@ const SobreUnicos = ({ apiData }: { apiData: any }) => {
     <section>
       <div className="container">
         <div className="py-4">
-          <div className="block w-full h-[320px] lg:h-[500px] relative">
+          <div className="block w-full h-[220px] lg:h-[500px] relative">
             <Image
               src={apiData.contentAbout.page.featuredImage.node.sourceUrl}
               fill

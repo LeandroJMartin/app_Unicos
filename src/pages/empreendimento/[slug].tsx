@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
-import MapApp from '../../components/interface/map';
+import MapApp from '../../components/interface/Map';
 import SlideApp from '../../components/interface/Slide';
 import { SocialLinks, Empreendimento, EmpSlugs } from '../../lib/querys';
 
@@ -91,8 +91,8 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
       </section>
 
       <section id="projeto" className="container my-6">
-        <div className="my-6 grid gap-6 grid-cols-1 sm:grid-cols-2">
-          <div className="rounded-3xl relative min-h-[470px] h-full">
+        <div className="my-6 flex flex-col lg:flex-row items-center gap-8">
+          <div className="w-full lg:w-1/2 rounded-3xl relative min-h-[470px] h-full order-2 lg:order-1">
             <Image
               src={apiData.emp.empImagemPrincipal.sourceUrl}
               alt="Imagem capa empreendimento"
@@ -100,7 +100,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
               className="object-cover rounded-3xl"
             />
           </div>
-          <div>
+          <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <div className="max-w-[300px]">
               <img
                 src={apiData.emp.empLogotipoDoEmpreendimento.sourceUrl}

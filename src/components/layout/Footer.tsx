@@ -10,13 +10,13 @@ const FooterApp = () => {
           <Link className="block py-1" href="/contato">
             Fale conosco
           </Link>
-          <Link className="block py-1" href="/ofereca-sua-area">
+          <Link className="block py-1" href="/contato">
             Ofereça sua àrea
           </Link>
-          <Link className="block py-1" href="/seja-um-parceiro">
+          <Link className="block py-1" href="/contato">
             Seja um parceiro
           </Link>
-          <Link className="block py-1" href="/trabalhe-conosco">
+          <Link className="block py-1" href="/contato">
             Trabalhe conosco
           </Link>
         </div>
@@ -27,7 +27,7 @@ const FooterApp = () => {
           <Link className="block py-1" href="/empreendimentos">
             Empreendimentos
           </Link>
-          <Link className="block py-1" href="/tire-suas-duvidas">
+          <Link className="block py-1" href="/blog">
             Tire suas dúvidas
           </Link>
           <a className="block py-1" href="/portal-do-cliente">

@@ -1,19 +1,18 @@
 import { useRef } from 'react';
-import Modal from './FilterMenuDropItem';
 import { TbAdjustmentsHorizontal } from 'react-icons/tb';
+import SubMenuButtonItem from './SubMenuButtonItem';
 
 interface Props {
-  SubItems: [
-    {
-      cidades: string;
-      tipos: string;
-    }
-  ];
+  SubItems: {
+    cidades: string;
+    tipos: string;
+  }[];
+  setFilter: (selected: string) => void;
 }
 
 type showMenuDropType = 'cities' | 'types';
 
-const FilterEmp = ({ SubItems }: Props) => {
+const FilterEmp = ({ SubItems, setFilter }: Props) => {
   const menuDropCitiesRef = useRef<HTMLDivElement>(null);
   const menuDropTypesRef = useRef<HTMLDivElement>(null);
 
@@ -24,8 +23,6 @@ const FilterEmp = ({ SubItems }: Props) => {
   const tipos = SubItems.map((item) => item.tipos)
     .filter((item, index, original) => original.indexOf(item) === index)
     .filter(Boolean);
-
-  console.log(tipos);
 
   const toggleMenuDropVisibility = (typeRef: showMenuDropType) => {
     if (typeRef === 'cities') {
@@ -41,6 +38,8 @@ const FilterEmp = ({ SubItems }: Props) => {
     }
   };
 
+  const handleClickOnFilter = (value: string) => setFilter(value);
+
   return (
     <>
       <div className="bg-white border border-slate-300 shadow-lg py-2 px-6 my-4 rounded-3xl flex md:hidden justify-between items-center">
@@ -49,31 +48,47 @@ const FilterEmp = ({ SubItems }: Props) => {
       </div>
 
       <div className="hidden md:flex flex-col md:flex-row items-start md:justify-between text-lg md:text-base py-6 md:py-2 px-10 bg-white border border-slate-300 shadow-xl rounded-3xl my-6 relative z-10">
-        <button>Todos</button>
+        <button onClick={() => handleClickOnFilter('todos')}>Todos</button>
 
-        <button
-          className="relative"
+        <div
+          className="relative select-none cursor-pointer"
           onClick={() => toggleMenuDropVisibility('types')}
         >
           <span>Escolha o tipo</span>
-          <Modal subitens={tipos} />
-        </button>
+          <SubMenuButtonItem
+            items={tipos}
+            ref={menuDropTypesRef}
+            setFilter={(selected: string) => handleClickOnFilter(selected)}
+          />
+        </div>
 
-        <button
-          className="relative"
+        <div
+          className="relative select-none cursor-pointer"
           onClick={() => toggleMenuDropVisibility('cities')}
         >
           <span>Cidade</span>
-          {/* <Modal subitens={cidades} /> */}
+          <SubMenuButtonItem
+            items={cidades}
+            ref={menuDropCitiesRef}
+            setFilter={(selected: string) => handleClickOnFilter(selected)}
+          />
+        </div>
+
+        <button onClick={() => handleClickOnFilter('breve_lancamento')}>
+          Breve Lançamento
         </button>
 
-        <button>Breve Lançamento</button>
+        <button onClick={() => handleClickOnFilter('lancamento')}>
+          Lançamento
+        </button>
 
-        <button>Lançamento</button>
+        <button onClick={() => handleClickOnFilter('em_construcao')}>
+          Em construção
+        </button>
 
-        <button>Em construção</button>
-
-        <button>Entregue</button>
+        <button onClick={() => handleClickOnFilter('entregue')}>
+          Entregue
+        </button>
       </div>
     </>
   );

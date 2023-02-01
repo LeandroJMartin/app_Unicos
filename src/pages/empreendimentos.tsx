@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import { useState, useEffect } from 'react';
 import FilterEmp from '../components/interface/FilterEmp';
 import FinanciamentoHome from '../components/interface/Financiamento';
 import HeroApp from '../components/interface/Hero';
@@ -10,21 +11,32 @@ interface Props {
 }
 
 const EmpreendimentosApp = ({ apiData }: Props) => {
-  const Items = apiData.AllEmp?.map((item: any) => {
+  const [filterSelected, setFilterSelected] = useState('todos');
+
+  const ItemsFilter = apiData.AllEmp?.map((item: any) => {
     return {
       cidades: item.empreendimento.empCidade,
       tipos: item.empreendimento.empTipoDoEmpreendimento,
     };
   });
 
-  console.log('Log(Renan): empreendimentos.tsx', apiData.AllEmp);
+  useEffect(() => {
+    if (filterSelected) {
+      console.log(filterSelected);
+    }
+  }, [filterSelected]);
+
+  console.log(apiData.AllEmp[0].empreendimento);
 
   return (
     <>
       <HeroApp Banners={apiData.banners} />
       <h1 className="title">Encontre a opção ideal para você</h1>
       <section className="container mb-4">
-        <FilterEmp SubItems={Items} />
+        <FilterEmp
+          SubItems={ItemsFilter}
+          setFilter={(selected: string) => setFilterSelected(selected)}
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
           {apiData.AllEmp?.map((item: any) => {

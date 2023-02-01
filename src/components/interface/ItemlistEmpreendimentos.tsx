@@ -57,7 +57,7 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
       <div className="px-4 py-4 min-h-[250px]">
         <div className="flex items-center">
           {emp.empLogotipoDoEmpreendimento?.sourceUrl && (
-            <div className="w-[100px]">
+            <div className="w-[100px] h-auto block">
               <img
                 src={emp.empLogotipoDoEmpreendimento?.sourceUrl}
                 alt="Logo empreendimento"

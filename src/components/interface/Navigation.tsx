@@ -22,12 +22,9 @@ const NavigationApp = () => {
     <nav className="flex flex-col xl:flex-row items-center justify-between h-full py-4 xl:py-0">
       <NavLink path="/a-unicos" label="A Unicos" />
       <NavLink path="/empreendimentos" label="Empreendimentos" />
-      <NavLink path="/duvidas-frequentes" label="Dúvidas frequentes" />
-      <NavLink path="/Fale conosco" label="Fale conosco" />
-      <a
-        href="#portal-do-cliente"
-        className="bg-transparent xl:bg-bgBlue text-white font-bold px-6 py-3 xl:py-1 mt-8 xl:mt-0 rounded-[30px] inline-block text-xl xl:text-base"
-      >
+      <NavLink path="/blog" label="Dúvidas frequentes" />
+      <NavLink path="/contato" label="Fale conosco" />
+      <a href="#portal-do-cliente" className="btn-white xl:btn-on xl:text-sm">
         Portal do cliente
       </a>
     </nav>

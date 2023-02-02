@@ -7,12 +7,13 @@ interface Props {
     cidades: string;
     tipos: string;
   }[];
+  filterSelected: string;
   setFilter: (selected: string) => void;
 }
 
 type showMenuDropType = 'cities' | 'types';
 
-const FilterEmp = ({ SubItems, setFilter }: Props) => {
+const FilterEmp = ({ SubItems, setFilter, filterSelected }: Props) => {
   const menuDropCitiesRef = useRef<HTMLDivElement>(null);
   const menuDropTypesRef = useRef<HTMLDivElement>(null);
 
@@ -28,17 +29,27 @@ const FilterEmp = ({ SubItems, setFilter }: Props) => {
     if (typeRef === 'cities') {
       if (!menuDropCitiesRef.current) return;
 
+      menuDropTypesRef?.current?.classList.add('hidden');
       menuDropCitiesRef.current.classList.toggle('hidden');
     }
 
     if (typeRef === 'types') {
       if (!menuDropTypesRef.current) return;
 
+      menuDropCitiesRef?.current?.classList.add('hidden');
       menuDropTypesRef.current.classList.toggle('hidden');
     }
   };
 
-  const handleClickOnFilter = (value: string) => setFilter(value);
+  const closeMenuDrop = () => {
+    menuDropCitiesRef?.current?.classList.add('hidden');
+    menuDropTypesRef?.current?.classList.add('hidden');
+  };
+
+  const handleClickOnFilter = (value: string) => {
+    closeMenuDrop();
+    setFilter(value);
+  };
 
   return (
     <>
@@ -48,7 +59,14 @@ const FilterEmp = ({ SubItems, setFilter }: Props) => {
       </div>
 
       <div className="hidden md:flex flex-col md:flex-row items-start md:justify-between text-lg md:text-base py-6 md:py-2 px-10 bg-white border border-slate-300 shadow-xl rounded-3xl my-6 relative z-10">
-        <button onClick={() => handleClickOnFilter('todos')}>Todos</button>
+        <button
+          className={`${
+            filterSelected === 'todos' ? 'text-blue' : 'text-current'
+          }`}
+          onClick={() => handleClickOnFilter('todos')}
+        >
+          Todos
+        </button>
 
         <div
           className="relative select-none cursor-pointer"
@@ -58,6 +76,7 @@ const FilterEmp = ({ SubItems, setFilter }: Props) => {
           <SubMenuButtonItem
             items={tipos}
             ref={menuDropTypesRef}
+            filterSelected={filterSelected}
             setFilter={(selected: string) => handleClickOnFilter(selected)}
           />
         </div>
@@ -70,23 +89,44 @@ const FilterEmp = ({ SubItems, setFilter }: Props) => {
           <SubMenuButtonItem
             items={cidades}
             ref={menuDropCitiesRef}
+            filterSelected={filterSelected}
             setFilter={(selected: string) => handleClickOnFilter(selected)}
           />
         </div>
 
-        <button onClick={() => handleClickOnFilter('breve_lancamento')}>
+        <button
+          className={`${
+            filterSelected === 'breve_lancamento' ? 'text-blue' : 'text-current'
+          }`}
+          onClick={() => handleClickOnFilter('breve_lancamento')}
+        >
           Breve Lançamento
         </button>
 
-        <button onClick={() => handleClickOnFilter('lancamento')}>
+        <button
+          className={`${
+            filterSelected === 'lancamento' ? 'text-blue' : 'text-current'
+          }`}
+          onClick={() => handleClickOnFilter('lancamento')}
+        >
           Lançamento
         </button>
 
-        <button onClick={() => handleClickOnFilter('em_construcao')}>
+        <button
+          className={`${
+            filterSelected === 'em_construcao' ? 'text-blue' : 'text-current'
+          }`}
+          onClick={() => handleClickOnFilter('em_construcao')}
+        >
           Em construção
         </button>
 
-        <button onClick={() => handleClickOnFilter('entregue')}>
+        <button
+          className={`${
+            filterSelected === 'entregue' ? 'text-blue' : 'text-current'
+          }`}
+          onClick={() => handleClickOnFilter('entregue')}
+        >
           Entregue
         </button>
       </div>

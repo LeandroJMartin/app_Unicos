@@ -22,8 +22,8 @@ const NavigationApp = () => {
     <nav className="flex flex-col xl:flex-row items-center justify-between h-full py-4 xl:py-0">
       <NavLink path="/a-unicos" label="A Unicos" />
       <NavLink path="/empreendimentos" label="Empreendimentos" />
-      <NavLink path="/blog" label="Dúvidas frequentes" />
-      <NavLink path="/contato" label="Fale conosco" />
+      <NavLink path="/contato#form_duvida" label="Dúvidas frequentes" />
+      <NavLink path="/contato#form_contato" label="Fale conosco" />
       <a href="#portal-do-cliente" className="btn-white xl:btn-on xl:text-sm">
         Portal do cliente
       </a>

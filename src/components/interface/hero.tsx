@@ -14,12 +14,12 @@ const HeroApp = ({ Banners }: Props) => {
     const imgs = (
       <>
         <img
-          className="hidden md:block rounded-xl"
+          className="hidden md:block rounded-xl md:rounded-3xl"
           src={item.ImgDesktopUrl}
           alt="Imagem Banner"
         />
         <img
-          className="block md:hidden rounded-xl"
+          className="block md:hidden rounded-xl md:rounded-3xl"
           src={item.ImgMobileUrl}
           alt="Imagem Banner"
         />

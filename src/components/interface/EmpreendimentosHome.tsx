@@ -23,7 +23,7 @@ const EmpeedimentosHome = ({ AllEmp }: Props) => {
       <div className="emp mt-8">
         <SlideApp items={emps} responsive={responsive} />
       </div>
-      <div className="text-center">
+      <div className="text-center mt-4">
         <Link href="/empreendimentos" className="btn-off">
           Veja mais
         </Link>

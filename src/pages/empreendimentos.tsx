@@ -26,21 +26,22 @@ const EmpreendimentosApp = ({ apiData }: Props) => {
     }
   }, [filterSelected]);
 
-  console.log(apiData.AllEmp[0].empreendimento);
+  // console.log(apiData.AllEmp[0].empreendimento);
 
   return (
     <>
       <HeroApp Banners={apiData.banners} />
-      <h1 className="title">Encontre a opção ideal para você</h1>
+      <h1 className="title mt-8">Encontre a opção ideal para você</h1>
       <section className="container mb-4">
         <FilterEmp
           SubItems={ItemsFilter}
+          filterSelected={filterSelected}
           setFilter={(selected: string) => setFilterSelected(selected)}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
-          {apiData.AllEmp?.map((item: any) => {
-            return <ItemListEmpreendimentos Item={item} />;
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 mt-12 mb-8">
+          {apiData.AllEmp?.map((item: any, index: number) => {
+            return <ItemListEmpreendimentos key={index} Item={item} />;
           })}
         </div>
       </section>

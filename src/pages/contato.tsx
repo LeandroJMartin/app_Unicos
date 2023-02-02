@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import Capa from '../../public/contato.jpeg';
@@ -19,6 +19,8 @@ type Indice = {
 const ContactApp: NextPage = ({ apiData }: any) => {
   const [selectedForm, setSelectedForm] = useState<keysOfForm>('form_duvida');
 
+  const boxDropdownRef = useRef<HTMLDivElement>(null);
+
   const forms: Indice = {
     form_duvida: <FormDuvidas />,
     form_duvida_anexo: <FormDuvidas />,
@@ -26,7 +28,31 @@ const ContactApp: NextPage = ({ apiData }: any) => {
     form_sua_area: <FormSuaArea />,
   };
 
-  const handleClickButtonForm = (value: keysOfForm) => setSelectedForm(value);
+  const labels = {
+    form_duvida: 'Tire suas dúvidas',
+    form_duvida_anexo: 'Seja um parceiro',
+    form_contato: 'Trabalhe conosco',
+    form_sua_area: 'Ofereça sua área',
+  };
+
+  const openBoxDrop = () => boxDropdownRef?.current?.classList.remove('hidden');
+
+  const closeBoxDrop = () => boxDropdownRef?.current?.classList.add('hidden');
+
+  const handleClickButtonForm = (value: keysOfForm) => {
+    closeBoxDrop();
+    setSelectedForm(value);
+  };
+
+  useEffect(() => {
+    const hash = window.location.hash?.replace(/#/g, '');
+
+    if (hash) {
+      const allKeys = Object.keys(forms);
+
+      if (allKeys.indexOf(hash)) setSelectedForm(hash as keysOfForm);
+    }
+  }, []);
 
   return (
     <>
@@ -44,12 +70,18 @@ const ContactApp: NextPage = ({ apiData }: any) => {
       <section className="container my-8">
         <div className="relative z-10 md:-translate-y-5 py-8">
           <h1 className="title">Fale com a Unicos</h1>
-          <button className="flex md:hidden justify-center items-center bg-bgBlue py-3 px-3 mt-4 w-full rounded-xl">
-            <p className="text-white font-bold mr-2">Tire suas dúvidas</p>
+          <button
+            onClick={() => openBoxDrop()}
+            className="flex md:hidden justify-center items-center bg-bgBlue py-3 px-3 mt-4 w-full rounded-xl z-10 relative"
+          >
+            <p className="text-white font-bold mr-2">{labels[selectedForm]}</p>
             <IoIosArrowDown size={20} className="text-white" />
           </button>
           <div className="block md:flex justify-center">
-            <div className="hidden md:inline-block drop-shadow-xl border border-slate-300 rounded-2xl mt-6 py-2 px-4 md:bg-white">
+            <div
+              ref={boxDropdownRef}
+              className="md:inline-block drop-shadow-xl border border-slate-300 rounded-t-0 md:rounded-t-2xl rounded-b-2xl -mt-2 md:mt-6 pt-6 md:pt-2 pb-2 px-4 bg-white relative z-0"
+            >
               <FormButtonSelect
                 label="Tire suas dúvidas"
                 keyFormSelect="form_duvida"
@@ -131,7 +163,7 @@ const FormButtonSelect = ({
 }: IFormButtonSelect) => {
   return (
     <button
-      className={`w-[150px] inline-block ${
+      className={`w-full py-3 md:py-0 text-lg md:text-sm 2xl:text-base md:w-[150px] block md:inline-block ${
         keySelected === keyFormSelect ? 'text-blue' : 'text-current'
       }`}
       onClick={() => fnClick(keyFormSelect)}

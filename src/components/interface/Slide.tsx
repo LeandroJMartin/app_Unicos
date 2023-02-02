@@ -32,6 +32,7 @@ const SlideApp = ({ items, responsive }: Props) => {
       responsive={responsive}
       renderPrevButton={Prev}
       renderNextButton={Next}
+      controlsStrategy="responsive"
     />
   );
 };

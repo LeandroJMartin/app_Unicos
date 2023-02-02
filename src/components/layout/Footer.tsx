@@ -1,22 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '../../../public/logo-white.svg';
+import CoolText from '../interface/CoolText';
 
 const FooterApp = () => {
   return (
-    <footer className="bg-blue2 py-12">
+    <footer className="bg-blue2 pt-12">
       <div className="container grid gap-5 grid-cols-2 md:grid-cols-6 text-white">
         <div>
-          <Link className="block py-1" href="/contato">
+          <Link className="block py-1" href="/contato#form_duvida">
             Fale conosco
           </Link>
-          <Link className="block py-1" href="/contato">
+          <Link className="block py-1" href="/contato#form_sua_area">
             Ofereça sua àrea
           </Link>
-          <Link className="block py-1" href="/contato">
+          <Link className="block py-1" href="/contato#form_duvida_anexo">
             Seja um parceiro
           </Link>
-          <Link className="block py-1" href="/contato">
+          <Link className="block py-1" href="/contato#form_contato">
             Trabalhe conosco
           </Link>
         </div>
@@ -53,6 +54,7 @@ const FooterApp = () => {
           <Image src={Logo} alt="Logo Unicos" className="w-[80%]" />
         </div>
       </div>
+      <CoolText />
     </footer>
   );
 };

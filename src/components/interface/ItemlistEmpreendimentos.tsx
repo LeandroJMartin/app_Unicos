@@ -55,7 +55,7 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
       </div>
       <InfoPrice value={emp.parcelasAPartirDe} />
       <div className="px-4 py-4 min-h-[250px]">
-        <div className="flex items-center">
+        <div className="flex items-center min-h-[70px] max-h-[120px]">
           {emp.empLogotipoDoEmpreendimento?.sourceUrl && (
             <div className="w-[100px] h-auto block">
               <img
@@ -65,7 +65,7 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
             </div>
           )}
           <div
-            className="text-blue2 text-xs w-[calc(100%-100px)] mx-h-[100px] pl-4"
+            className="text-blue2 text-xs w-[calc(100%-100px)] max-h-[100px] overflow-auto pl-4"
             dangerouslySetInnerHTML={{ __html: emp.empCaracteristicas }}
           />
         </div>

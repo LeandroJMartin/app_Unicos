@@ -8,7 +8,7 @@ import {
 const API_ENDPOINT = `${process.env.VERCEL_ENV === 'production'
   ? process.env.GRAPHQL_ENDPOINT
   : process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT
-}`;
+  }`;
 
 let cachedClient: any = null;
 

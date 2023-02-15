@@ -13,7 +13,7 @@ interface Props {
       empImagemPrincipal: {
         sourceUrl: string;
       };
-      parcelasAPartirDe: string;
+      condicaoComercial: string;
       empLogotipoDoEmpreendimento: {
         sourceUrl: string;
       };
@@ -47,19 +47,19 @@ const ItemListEmpreendimentos = ({ Item }: Props) => {
       <div className="h-[320px] relative">
         <TagApp tag={emp.empEtapa} />
         <Image
-          src={emp.empImagemPrincipal?.sourceUrl}
+          src={emp.empImagemPrincipal?.sourceUrl || ''}
           alt={'Imagem ' + Item.slug}
           fill
           className="object-cover rounded-t-3xl"
         />
       </div>
-      <InfoPrice value={emp.parcelasAPartirDe} />
+      <InfoPrice value={emp.condicaoComercial} />
       <div className="px-4 py-4 min-h-[250px]">
         <div className="flex items-center min-h-[70px] max-h-[120px]">
           {emp.empLogotipoDoEmpreendimento?.sourceUrl && (
             <div className="w-[100px] h-auto block">
               <img
-                src={emp.empLogotipoDoEmpreendimento?.sourceUrl}
+                src={emp.empLogotipoDoEmpreendimento?.sourceUrl || ''}
                 alt="Logo empreendimento"
               />
             </div>

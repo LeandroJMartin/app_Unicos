@@ -220,11 +220,11 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
         <h1 className="title">Gostaria de conhecer mais?</h1>
         <p>Tire suas dúvidas com um consultor</p>
         <form
-          action=""
+          action="https://novo.mayacomunicacao.com.br/homologacao/teste/index.php"
           method="post"
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 my-8 justify-center"
         >
-          <input type="text" placeholder="Seu nome" />
+          <input type="text" name="name" placeholder="Seu nome" />
           <input type="email" name="email" placeholder="Seu e-mail" />
           <input type="tel" name="tel" placeholder="Telefone" />
           <div className="col-span-1 sm:col-span-3">

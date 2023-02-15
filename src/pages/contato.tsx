@@ -23,16 +23,16 @@ const ContactApp: NextPage = ({ apiData }: any) => {
 
   const forms: Indice = {
     form_duvida: <FormDuvidas />,
+    form_sua_area: <FormSuaArea />,
     form_duvida_anexo: <FormDuvidas />,
     form_contato: <FormContato />,
-    form_sua_area: <FormSuaArea />,
   };
 
   const labels = {
     form_duvida: 'Tire suas dúvidas',
+    form_sua_area: 'Ofereça sua área',
     form_duvida_anexo: 'Seja um parceiro',
     form_contato: 'Trabalhe conosco',
-    form_sua_area: 'Ofereça sua área',
   };
 
   const openBoxDrop = () => boxDropdownRef?.current?.classList.remove('hidden');

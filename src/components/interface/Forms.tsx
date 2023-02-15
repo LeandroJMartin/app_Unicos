@@ -40,7 +40,10 @@ export const FormSuaArea = () => {
       ></textarea>
       <div className="col-span-1 md:col-span-3 justify-items-center ">
         <div className="flex justify-center items-center">
-          <input type="file" name="file" />
+          <label htmlFor="matricula">
+            <span className="mr-2">Anexar matrícula:</span>
+            <input type="file" name="file" id="matricula" />
+          </label>
           <input type="submit" value="Enviar" className="btn-on ml-4" />
         </div>
       </div>

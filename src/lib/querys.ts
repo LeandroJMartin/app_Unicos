@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import { CiPizza } from 'react-icons/ci';
 import { getClient } from './apollo';
 
 const ApolloClient = getClient();
@@ -102,8 +101,8 @@ export const Banners = {
 
     const banners = result[this.postType].nodes?.map((item: any) => {
       return {
-        ImgDesktopUrl: item[this.acf].bannerImagemDesktop.sourceUrl,
-        ImgMobileUrl: item[this.acf].bannerImagemMobile.sourceUrl,
+        ImgDesktopUrl: item[this.acf].bannerImagemDesktop?.sourceUrl,
+        ImgMobileUrl: item[this.acf].bannerImagemMobile?.sourceUrl,
         LinkExterno: item[this.acf].bannerLinkExterno,
         Url: item[this.acf].bannerLink
       }
@@ -174,7 +173,7 @@ export const Empreendimentos = {
               empImagemPrincipal{
                 sourceUrl
               }
-              parcelasAPartirDe
+              condicaoComercial
               empLogotipoDoEmpreendimento{
                 sourceUrl
               }
@@ -218,7 +217,7 @@ export const Empreendimento = {
             empDescricao
             empTipoDoEmpreendimento
             empEtapa
-            parcelasAPartirDe
+            condicaoComercial
             empCidade
             empEstagioDaObra
             empEstagio

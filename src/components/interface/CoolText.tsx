@@ -1,7 +1,7 @@
 const CoolText = () => {
   return (
     <div className="container">
-      <div className="flex justify-center items-center py-4 border-t border-blue/30 mt-10 text-white/60 text-sm">
+      <div className="flex flex-col lg:flex-row justify-center items-center py-4 border-t border-blue/30 mt-10 text-white/60 text-sm">
         <p>Unicos Construtora, todos os direitos reservados.</p>
         <p className="ml-2 mr-2">Desenvolvido por </p>
         <a href="https://mayacomunicacao.com.br">

@@ -29,7 +29,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
           <p className="font-bold py-3">{item.texto}</p>
           <div className="relative h-[300px] sm:h-[450px]">
             <Image
-              src={item.imagem.sourceUrl}
+              src={item.imagem?.sourceUrl}
               alt={`Planta ${item.texto}`}
               fill
               className="object-contain"
@@ -48,7 +48,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
           className="item relative h-[200px] sm:h-[450px] xl:sm:h-[550px] rounded-3xl"
         >
           <Image
-            src={item.sourceUrl}
+            src={item?.sourceUrl}
             alt="Foto do empreendimento"
             fill
             className="object-cover rounded-3xl"
@@ -63,7 +63,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
       <section className="container">
         <div className="rounded-3xl relative h-[280px] sm:h-[400px] 2xl:h-[600px]">
           <Image
-            src={apiData.emp.empImagemDaCapa.sourceUrl}
+            src={apiData.emp.empImagemDaCapa?.sourceUrl}
             alt="Imagem capa empreendimento"
             fill
             className="object-cover rounded-3xl"
@@ -94,7 +94,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
         <div className="my-6 flex flex-col lg:flex-row items-center gap-8">
           <div className="w-full lg:w-1/2 rounded-3xl relative min-h-[470px] h-full order-2 lg:order-1">
             <Image
-              src={apiData.emp.empImagemPrincipal.sourceUrl}
+              src={apiData.emp.empImagemPrincipal?.sourceUrl}
               alt="Imagem capa empreendimento"
               fill
               className="object-cover rounded-3xl"
@@ -103,7 +103,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <div className="max-w-[300px]">
               <img
-                src={apiData.emp.empLogotipoDoEmpreendimento.sourceUrl}
+                src={apiData.emp.empLogotipoDoEmpreendimento?.sourceUrl}
                 alt="Logotipo do empreendimento"
               />
             </div>
@@ -161,7 +161,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
               <div key={index} className="text-center py-4">
                 <img
                   className="mx-auto max-w-[100px] block"
-                  src={item.icone.sourceUrl}
+                  src={item.icone?.sourceUrl}
                   alt={`icone ${item.nome}`}
                 />
                 <p className="font-bold py-3">{item.nome}</p>
@@ -187,7 +187,7 @@ const EmpreendimentoApp = ({ apiData }: Props) => {
         <h1 className="title">Implantação</h1>
         <div className="max-h-[650px] flex">
           <img
-            src={apiData.emp.empImagemDaImplantacao.sourceUrl}
+            src={apiData.emp.empImagemDaImplantacao?.sourceUrl}
             alt="Foto da Implantação"
             className="mx-auto object-contain"
           />

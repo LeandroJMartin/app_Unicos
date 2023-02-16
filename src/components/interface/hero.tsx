@@ -2,8 +2,8 @@ import SlideApp from './Slide';
 
 interface Props {
   Banners: {
-    ImgDesktopUrl: string;
-    ImgMobileUrl: string;
+    ImgDesktopUrl: string | undefined;
+    ImgMobileUrl: string | undefined;
     LinkExterno: string;
     Url: string;
   }[];

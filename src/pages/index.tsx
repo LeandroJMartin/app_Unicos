@@ -24,6 +24,8 @@ export default HomeApp;
 export const getStaticProps: GetStaticProps = async () => {
   const response = await ExecuteAllQuerys();
 
+  console.log(response);
+
   return {
     props: {
       apiData: response,

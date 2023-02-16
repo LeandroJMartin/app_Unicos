@@ -101,8 +101,8 @@ export const Banners = {
 
     const banners = result[this.postType].nodes?.map((item: any) => {
       return {
-        ImgDesktopUrl: item[this.acf].bannerImagemDesktop?.sourceUrl,
-        ImgMobileUrl: item[this.acf].bannerImagemMobile?.sourceUrl,
+        ImgDesktopUrl: item[this.acf].bannerImagemDesktop?.sourceUrl || '',
+        ImgMobileUrl: item[this.acf].bannerImagemMobile?.sourceUrl || '',
         LinkExterno: item[this.acf].bannerLinkExterno,
         Url: item[this.acf].bannerLink
       }

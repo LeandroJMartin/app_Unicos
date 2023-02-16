@@ -20,14 +20,6 @@ const EmpreendimentosApp = ({ apiData }: Props) => {
     };
   });
 
-  useEffect(() => {
-    if (filterSelected) {
-      console.log(filterSelected);
-    }
-  }, [filterSelected]);
-
-  // console.log(apiData.AllEmp[0].empreendimento);
-
   return (
     <>
       <HeroApp Banners={apiData.banners} />
